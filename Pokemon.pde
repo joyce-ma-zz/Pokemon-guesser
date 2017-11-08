@@ -1,7 +1,8 @@
 class Pokemon {
   String name;
   String[] answers;
-  String[] questions;
+  String[] questions; //question index matches answers index
+  
   Pokemon (String[] ssp, String[] q){
     this.name = ssp[0];
     print (this.name);
@@ -12,4 +13,5 @@ class Pokemon {
     }
     this.questions = q;
   }
+  
 }
