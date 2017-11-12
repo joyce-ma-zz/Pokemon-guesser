@@ -1,7 +1,12 @@
-Pokemon userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
-  drawButtons();
-  displayQuestion(questionPicker(possiblePokemon, questions));
-  return (possiblePokemon.get((int)random(0, possiblePokemon.size())));
+void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
+  if (possiblePokemon.size() > 1){
+    background (0);
+    drawButtons();
+    displayQuestion(questions[questionPicker(possiblePokemon, questions)]);
+  }
+  else{
+    userOutput(possiblePokemon.get(0));
+  }
 }
 
 
