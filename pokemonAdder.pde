@@ -1,7 +1,7 @@
-void setup() {
+void pokemonAdder(){
   PrintWriter pw;
   String[] lines = loadStrings("pokemon.txt");
-  pw = createWriter("data\pokemon.txt");
+  pw = createWriter("pokemon.txt");
   ArrayList<String> newLines = new ArrayList<String>(50);
   
   // Add 'false' to the end of all items in the text file

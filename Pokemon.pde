@@ -3,7 +3,7 @@ class Pokemon {
   String[] answers;
   //question index matches answers index
   
-  Pokemon (String[] ssp, String[] q){
+  Pokemon (String[] ssp){ //ssp = splitStringPokemon
     this.name = ssp[0];
     print (this.name);
     this.answers = new String[ssp.length - 1]; 
@@ -20,6 +20,5 @@ class Pokemon {
     else
       return false;
   }
-  
   
 }
