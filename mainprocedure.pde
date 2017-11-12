@@ -1,4 +1,3 @@
-void setup() {  
 
   String[] stringPokemon = loadStrings("pokemon.txt");
   //stringPokemon is the array of unsplit text
@@ -7,6 +6,12 @@ void setup() {
   //questions is the array of questions
   
   String[][] splitStringPokemon = new String[stringPokemon.length][questions.length + 1];
+  
+    ArrayList<Pokemon>possiblePokemon = new ArrayList<Pokemon>();
+  //possiblePokemon is the array list of type Pokemon, instead of string
+  
+  void setup() {  
+
   for (int i = 0; i < splitStringPokemon.length; i++) {
     String[] rowPokemon = split(stringPokemon[i], '\t');
     //rowPokemon splits the long strings in stringPokemon into multiple strings
@@ -28,19 +33,34 @@ void setup() {
   //and the other columns are the answers to the
   //different questions in the questions array
   
-  ArrayList<Pokemon>possiblePokemon = new ArrayList<Pokemon>();
-  //possiblePokemon is the array list of type Pokemon, instead of string
-  
+
   for (int i = 0; i < splitStringPokemon.length; i++) {
-    possiblePokemon.add(new Pokemon(splitStringPokemon[i], questions));
+    possiblePokemon.add(new Pokemon(splitStringPokemon[i]));
   }
   
   Pokemon pokemonGuess = userInput(possiblePokemon, questions);
-  userOutput(pokemonGuess);
+  //userOutput(pokemonGuess);
   
 }
 
 
-void draw() {
-}
+void mouseClicked(){
 
+  if( yesButtonWasClicked() ) { //return userAnswer
+    println("You answered YES");
+    userAnswer[i] = true;
+    
+    background(0);
+    drawButtons();
+    displayQuestion(questionPicker(possiblePokemon, questions));
+  }
+  
+  else if( noButtonWasClicked() ) { //return userAnswer
+    println("You answered NO");
+    userAnswer[i] = false;
+    
+    background(0);
+    drawButtons();
+    displayQuestion(questionPicker(possiblePokemon, questions));
+  }
+}

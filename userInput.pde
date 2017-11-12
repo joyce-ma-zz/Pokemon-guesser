@@ -1,7 +1,10 @@
 boolean[] userAnswer = new boolean[questions.length];
 
 Pokemon userInput(ArrayList<Pokemon> possiblePokemon , String[] questions){
+while (possiblePokemon.size() > 1)
 
+}
+void draw() {
 }
 
 void drawButtons() {
@@ -22,7 +25,11 @@ void drawButtons() {
 }
 
 
-
+void displayQuestion(String i) { //use questionPicker to find i
+  
+  fill( 255 );
+  text(i, 10, 100);
+}
 
 
 boolean yesButtonWasClicked() {
