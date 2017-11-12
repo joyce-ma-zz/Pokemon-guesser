@@ -1,11 +1,9 @@
-boolean[] userAnswer = new boolean[questions.length];
-
-Pokemon userInput(ArrayList<Pokemon> possiblePokemon , String[] questions){
-while (possiblePokemon.size() > 1)
-
+Pokemon userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
+  
+  return (possiblePokemon.get((int)random(0, possiblePokemon.size())));
 }
-void draw() {
-}
+
+
 
 void drawButtons() {
 
@@ -22,6 +20,7 @@ void drawButtons() {
   
   fill(255,255,0);
   text("NO", 210, 175);
+  
 }
 
 
@@ -29,6 +28,7 @@ void displayQuestion(String i) { //use questionPicker to find i
   
   fill( 255 );
   text(i, 10, 100);
+  
 }
 
 
@@ -47,4 +47,4 @@ boolean noButtonWasClicked() {
       
   else
     return false;
-} //<>//
+}
