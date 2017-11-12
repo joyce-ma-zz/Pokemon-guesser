@@ -1,5 +1,6 @@
 Pokemon userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
-  
+  drawButtons();
+  displayQuestion(questionPicker(possiblePokemon, questions));
   return (possiblePokemon.get((int)random(0, possiblePokemon.size())));
 }
 

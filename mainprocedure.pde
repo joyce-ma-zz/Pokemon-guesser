@@ -18,6 +18,9 @@ boolean[] userAnswer;
 
 
 void setup() {  
+  
+  size(500, 500);
+  
   stringPokemon = loadStrings("pokemon.txt");
   //stringPokemon is the array of unsplit text
   
