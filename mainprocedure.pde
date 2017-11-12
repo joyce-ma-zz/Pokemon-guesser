@@ -39,7 +39,12 @@
   }
   
   Pokemon pokemonGuess = userInput(possiblePokemon, questions);
-  //userOutput(pokemonGuess);
+  if (userOutput(pokemonGuess)){
+    println("guessed right!");
+  }
+  else {
+    pokemonAdder();
+  }
   
 }
 
