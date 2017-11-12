@@ -1,3 +1,7 @@
+  import java.util.Arrays;
+  import java.util.List;
+  PrintWriter pw;
+  PrintWriter questionPw;
 
   String[] stringPokemon = loadStrings("pokemon.txt");
   //stringPokemon is the array of unsplit text
@@ -43,7 +47,7 @@
     println("guessed right!");
   }
   else {
-    pokemonAdder();
+    pokemonAdder(pokemonToAdd, pokemonGuess, questionToAdd);
   }
   
 }
