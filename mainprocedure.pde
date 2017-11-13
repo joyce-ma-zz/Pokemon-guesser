@@ -34,12 +34,11 @@ void setup() {
     String[] rowPokemon = split(stringPokemon[i], '\t');
     //rowPokemon splits the long strings in stringPokemon into multiple strings
     //each one pertaining to a specific question's answer or the Pokemon's name
-    for (int j = 0; j < 10; j++) {
-      splitStringPokemon[i][j] = rowPokemon[j];
-    }
+    splitStringPokemon[i][0] = rowPokemon[0];
+    splitStringPokemon[i][1] = rowPokemon[1];
     //there are some spaces left blank for the type true-or-false answers(values to be assigned later)
-    for (int j = 24; j < questions.length + 1; j++) {
-      splitStringPokemon[i][j] = rowPokemon[j - 14];      
+    for (int j = 15; j < splitStringPokemon[0].length; j++) {
+      splitStringPokemon[i][j] = rowPokemon[j - 13];      
     }
   }
   //splitStringPokemon is a 2D array where each row is a pokemon,
@@ -49,8 +48,9 @@ void setup() {
 
   for (int i = 0; i < splitStringPokemon.length; i++) {
     possiblePokemon.add(new Pokemon(splitStringPokemon[i]));
-    for (int j = 9; j < 23; j++){
-      if (("Is it " + possiblePokemon.get(i).answers[j] + " type?").equals(questions[j]))
+    String type = "Is it " + possiblePokemon.get(i).answers[0] + " type?";
+    for (int j = 0; j < 14; j++){
+      if (type.equals(questions[j]))
         possiblePokemon.get(i).answers[j] = "TRUE";
       else
         possiblePokemon.get(i).answers[j] = "FALSE";
@@ -72,7 +72,6 @@ void draw() {
 }
 
 void mouseClicked() {
-  
   if ( yesButtonWasClicked() ) { //return userAnswer
   
     println("You answered YES");
@@ -81,7 +80,7 @@ void mouseClicked() {
 
     println("possible pokemon size before eliminating " + possiblePokemon.size());
     
-    possiblePokemon = eliminate(possiblePokemon, true, questionNum);//change the 0 later
+    possiblePokemon = eliminate(possiblePokemon, true, questionNum);
     userAnswer[questionNum] = true;
     
     println("possible pokemon size after eliminating " + possiblePokemon.size());
@@ -94,13 +93,15 @@ void mouseClicked() {
   
     println("You answered NO");
     
-    print(possiblePokemon.size());
-    
+    println("possible pokemon size before eliminating " + possiblePokemon.size());
+
     int questionNum = questionPicker(possiblePokemon, questions);      
-    possiblePokemon = eliminate(possiblePokemon, true, questionNum);
+    possiblePokemon = eliminate(possiblePokemon, false, questionNum);
     userAnswer[questionPicker(possiblePokemon, questions)] = false;
     userInput(possiblePokemon, questions);
     
+    println("possible pokemon size after eliminating " + possiblePokemon.size());
+
   }
   
 }

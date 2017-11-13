@@ -1,4 +1,3 @@
-Is it fish-like?
 Is it Psychic type?
 Is it Flying type?
 Is it Grass type?
@@ -22,4 +21,3 @@ Final evolution?
 Connected to another evolution?
 Is it bird-like?
 1st gen?
-

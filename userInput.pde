@@ -4,6 +4,9 @@ void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
     drawButtons();
     displayQuestion(questions[questionPicker(possiblePokemon, questions)]);
   }
+  else if (possiblePokemon.size() == 0){
+    println("no choice");
+  }
   else{
     userOutput(possiblePokemon.get(0));
   }
