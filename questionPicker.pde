@@ -1,5 +1,6 @@
 
 int questionPicker(ArrayList<Pokemon> possiblePokemon, String[] questions){
+  //Initial Values
   int trues = 0;
   float [] ratio = new float[questions.length];
   float bestDiff = 1;
