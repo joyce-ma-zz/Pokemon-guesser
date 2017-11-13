@@ -5,7 +5,7 @@ class Pokemon {
   
   Pokemon (String[] ssp){ //ssp = splitStringPokemon
     this.name = ssp[0];
-    this.answers = new String[ssp.length - 1]; //-1 to remove name space 
+    this.answers = new String[ssp.length -  1]; //-1 to remove name space 
     for (int i = 1; i < ssp.length; i++){
       this.answers[i - 1] = ssp[i];
     }

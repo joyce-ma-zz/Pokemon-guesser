@@ -15,34 +15,43 @@ void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
 
 
 void drawButtons() {
+  textSize(50);
+  
+  fill(255,255,75);
+  ellipse(500,100,500,175);
+  
+  fill(0);
+  text("Pokemon Guesser",290,115);
 
+  fill(230);
+  rect(185,450,630,300);
+  
   //YES BUTTON
   fill(0,255,0);
-  rect(100, 150, 50, 50);
+  rect(225, 500, 200, 200);
   
   fill(255,255,0);
-  text("YES", 110, 175);
+  text("YES", 275, 600);
   
   //NO BUTTON
   fill(255,0, 0);
-  rect(200, 150, 50, 50);
+  rect(575, 500, 200, 200);
   
   fill(255,255,0);
-  text("NO", 210, 175);
-  
+  text("NO", 625, 600);
 }
 
 
 void displayQuestion(String i) { //use questionPicker to find i
   
   fill( 255 );
-  text(i, 10, 100);
+  text(i, 125, 360);
   
 }
 
 
 boolean yesButtonWasClicked() {
-  if( mouseX >= 100 && mouseX <=150 && mouseY >= 150 && mouseY <=200 )
+  if( mouseX >= 225 && mouseX <= 425 && mouseY >= 500 && mouseY <=700 )
       return true;
       
   else
@@ -51,9 +60,9 @@ boolean yesButtonWasClicked() {
 
 
 boolean noButtonWasClicked() {
-  if( mouseX >= 200 && mouseX <=250 && mouseY >= 150 && mouseY <=200 )
+  if( mouseX >= 575 && mouseX <=775 && mouseY >= 500 && mouseY <=700 )
       return true;
       
   else
     return false;
-}
+}  
