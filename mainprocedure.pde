@@ -1,4 +1,3 @@
-//Required variables for the setup/main procedure
 import java.util.Arrays;
 import java.util.List;
 PrintWriter pw;
@@ -47,10 +46,9 @@ void setup() {
     String[] rowPokemon = split(stringPokemon[i], '\t');
     //rowPokemon splits the long strings in stringPokemon into multiple strings
     //each one pertaining to a specific question's answer or the Pokemon's name
-    splitStringPokemon[i][0] = rowPokemon[0];
-    splitStringPokemon[i][1] = rowPokemon[1];
+
     //there are some spaces left blank for the type true-or-false answers(values to be assigned later)
-    for (int j = 15; j < splitStringPokemon[0].length; j++) {
+    for (int j = 0; j < splitStringPokemon[0].length - 1; j++) {
       splitStringPokemon[i][j] = rowPokemon[j - 13];      
     }
   }
@@ -62,8 +60,8 @@ void setup() {
 
   for (int i = 0; i < splitStringPokemon.length; i++) {
     possiblePokemon.add(new Pokemon(splitStringPokemon[i]));
-    String type = "Is it " + possiblePokemon.get(i).answers[0] + " type?";
-    for (int j = 0; j < 14; j++){
+    String type = "Is it " + possiblePokemon.get(i).answers[-1] + " type?";
+    for (int j = questions.length - 14; j < questions.length; j++){
     if (type.equals(questions[j]))
         possiblePokemon.get(i).answers[j] = "TRUE";
       else
@@ -175,8 +173,8 @@ void mouseClicked() {
   
 }
 
-void guessWrong(){          //if the program guesses the wrong pokemon,
-      background (0);       //this initializes the code that allows the user to add their pokemon to the database
+void guessWrong(){
+      background (0);
       fill(255);
       int unaskedQ = 0;
       textSize(20);

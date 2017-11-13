@@ -1,10 +1,24 @@
-1st gen?
 First evolution?
 Is it dangerous?
 Stands on two legs?
 Is it taller than the average human?
 Has a tail?
 Final evolution?
-Connected to another evolution?	
+Connected to another evolution?
 Is it bird-like?
 Is it fish-like?
+1st gen?
+Is it Psychic type?
+Is it Flying type?
+Is it Grass type?
+Is it Rock type?
+Is it Dark type?
+Is it Ground type?
+Is it Water type?
+Is it Dragon type?
+Is it Ice type?
+Is it Poison type?
+Is it Electric type?
+Is it Normal type?
+Is it Fire type?
+Is it Ghost type?
