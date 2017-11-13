@@ -1,3 +1,4 @@
+//Required variables for the setup/main procedure
 import java.util.Arrays;
 import java.util.List;
 PrintWriter pw;
@@ -174,8 +175,8 @@ void mouseClicked() {
   
 }
 
-void guessWrong(){
-      background (0);
+void guessWrong(){          //if the program guesses the wrong pokemon,
+      background (0);       //this initializes the code that allows the user to add their pokemon to the database
       fill(255);
       int unaskedQ = 0;
       textSize(20);
