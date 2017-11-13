@@ -13,7 +13,6 @@ ArrayList<Pokemon>possiblePokemon = new ArrayList<Pokemon>();
 //possiblePokemon is the array list of type Pokemon, instead of string
 
 String[] userAnswer;
-int numUQ = 0;
 
 //input cache to read user's input when needed.
 String inputCache;
@@ -81,6 +80,8 @@ void draw() {
 }
 
 void mouseClicked() {
+  if (needInputN)
+    return;
   if ( yesButtonWasClicked() ) { //return userAnswer
     if (needInputQ){
       int unaskedQ = 0;
@@ -96,6 +97,7 @@ void mouseClicked() {
       unaskedQ = 0;
       textSize(20);
       text("Guessed wrong... Please answer these questions so we can add your Pokemon.", 20, 300);
+      int numUQ = 0;
       for (int i = 0; i < userAnswer.length; i++){
         if (userAnswer[i] == null){
           unaskedQ = i;
@@ -109,13 +111,17 @@ void mouseClicked() {
       else {
         needInputQ = false;
         needInputN = true;
+        displayQuestion("Enter your Pokemon's name.");
       }
 
     }
     else if (possiblePokemon.size() == 1){
       background (0);
       displayQuestion("Guessed right!");
-    }  
+    } 
+    else if (possiblePokemon.size() == 0){
+      guessWrong();
+    }
     else{
       int questionNum = questionPicker(possiblePokemon, questions);
       possiblePokemon = eliminate(possiblePokemon, true, questionNum);
@@ -138,6 +144,7 @@ void mouseClicked() {
       unaskedQ = 0;
       textSize(20);
       text("Guessed wrong... Please answer these questions so we can add your Pokemon.", 20, 300);
+      int numUQ = 0;
       for (int i = 0; i < userAnswer.length; i++){
         if (userAnswer[i] == null){
           unaskedQ = i;
@@ -151,24 +158,11 @@ void mouseClicked() {
       else {
         needInputQ = false;
         needInputN = true;
+        displayQuestion("Enter your Pokemon's name.");
       }
     }
     else if (possiblePokemon.size() == 0 || possiblePokemon.size() == 1){
-      background (0);
-      fill(255);
-      int unaskedQ = 0;
-      textSize(20);
-      text("Guessed wrong... Please answer these questions so we can add your Pokemon.", 20, 300);
-      for (int i = 0; i < userAnswer.length; i++){
-        if (userAnswer[i] == null){
-          unaskedQ = i;
-          numUQ ++;
-        }
-      }
-      drawButtons();
-      displayQuestion(questions[unaskedQ]);
-      needInputQ = true;
-      //pokemonAdder(pokemonToAdd, pokemonGuess, questionToAdd);
+      guessWrong();
     }  
     else{
       int questionNum = questionPicker(possiblePokemon, questions);      
@@ -178,4 +172,20 @@ void mouseClicked() {
     }
   }
   
+}
+
+void guessWrong(){
+      background (0);
+      fill(255);
+      int unaskedQ = 0;
+      textSize(20);
+      text("Guessed wrong... Please answer these questions so we can add your Pokemon.", 20, 300);
+      for (int i = 0; i < userAnswer.length; i++){
+        if (userAnswer[i] == null){
+          unaskedQ = i;
+        }
+      }
+      drawButtons();
+      displayQuestion(questions[unaskedQ]);
+      needInputQ = true;
 }
