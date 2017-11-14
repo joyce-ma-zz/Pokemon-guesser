@@ -27,8 +27,8 @@ void userTyping(char character, String request) {
       enterKeyPressed();
     }
   }
-  textSize(20);
   background(0);
+  textSize(20);
   text("Oops! We don't have your Pokemon. Answer these questions to add it.", 20, 300);
   textSize(45);
   text(inputCache, 500 - inputCache.length()*15, 500);
@@ -42,6 +42,8 @@ void enterKeyPressed(){
     //debug
     println ("question " + inputCache);
     needInputQ = false;
+    background(0);
+    displayQuestion("Thanks for entering a Pokemon!");
   }
   else if (needInputN){
     
