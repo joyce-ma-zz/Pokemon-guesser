@@ -15,14 +15,9 @@ void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
 
 
 void drawButtons() {
+  
   textSize(50);
-  
-  fill(255,255,75);
-  ellipse(500,100,500,175);
-  
-  fill(0);
-  text("Pokemon Guesser",290,115);
-
+    
   fill(230);
   rect(185,450,630,300);
   
@@ -44,8 +39,16 @@ void drawButtons() {
 
 void displayQuestion(String i) { //use questionPicker to find i
   
+  textSize(45);
+  
+  fill(255,255,75);
+  ellipse(500,100,500,175);
+  
+  fill(0);
+  text("Pokemon Guesser",290,115);
+
   fill( 255 );
-  text(i, 125, 360);
+  text(i, 20, 360);
   
 }
 
