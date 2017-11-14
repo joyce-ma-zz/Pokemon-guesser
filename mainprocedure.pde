@@ -48,8 +48,8 @@ void setup() {
     //each one pertaining to a specific question's answer or the Pokemon's name
 
     //there are some spaces left blank for the type true-or-false answers(values to be assigned later)
-    for (int j = 0; j < splitStringPokemon[0].length - 1; j++) {
-      splitStringPokemon[i][j] = rowPokemon[j - 13];      
+    for (int j = 0; j < rowPokemon.length - 1; j++) {
+      splitStringPokemon[i][j] = rowPokemon[j];      
     }
   }
   //splitStringPokemon is a 2D array where each row is a pokemon,
@@ -60,7 +60,7 @@ void setup() {
 
   for (int i = 0; i < splitStringPokemon.length; i++) {
     possiblePokemon.add(new Pokemon(splitStringPokemon[i]));
-    String type = "Is it " + possiblePokemon.get(i).answers[-1] + " type?";
+    String type = "Is it " + possiblePokemon.get(i).answers[possiblePokemon.get(i).answers.length - 1] + " type?";
     for (int j = questions.length - 14; j < questions.length; j++){
     if (type.equals(questions[j]))
         possiblePokemon.get(i).answers[j] = "TRUE";
