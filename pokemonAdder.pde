@@ -1,9 +1,11 @@
-void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd) {
+void pokemonAdder(String[] newPokemonInfo, String questionToAdd) {
   String[] stringLines = loadStrings("pokemon.txt");
   List<String> lines = new ArrayList<String>(Arrays.asList(stringLines));
   pw = createWriter("data\\pokemon.txt");
   // Create array for data to replace current data in the file
   ArrayList<String> newLines = new ArrayList<String>(60);
+  // Append new pokemon info to lines of pokemon file
+  lines.add(String.join("\t", newPokemonInfo));
   
   /* Add 'false' to the end of all items in the text file except for
      the one pokemon specified */
@@ -14,22 +16,9 @@ void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd
     List<String> pokemonData = new ArrayList<String>(Arrays.asList(lines.get(i).split("\t")));
     // Make space for new question boolean before pokemon type
     pokemonData.add(pokemonData.get(pokemonData.size()-1));
-    /* If this line is the data for the wrongly guessed pokemon, then copy
-       all of this pokemon's data for the new pokemon and add a 'true' at the end
-       for the new question */
-    if (pokemonData.get(0).equals(pokemonGuess)) {
-      ArrayList<String> newPokemonData = new ArrayList<String>(15);
-      newPokemonData.add(pokemonToAdd);
-      
-      for (int x=1; x<pokemonData.size()-1; x++) {
-        newPokemonData.add(pokemonData.get(x)); 
-      }
-      // Join new pokemon info by tabs and add to 'lines' array
-      lines.add(String.join("\t", newPokemonData));
-    }
     // Add 'false' just before type for the new question for all pokemon except
-    // for adding 'true' to the new one
-    if (pokemonData.get(0).equals(pokemonToAdd)) {
+    // for the new one, add 'true' for this one
+    if (pokemonData.get(0).equals(newPokemonInfo[0])) {
       pokemonData.set(pokemonData.size()-2, "TRUE");
     } else {
       pokemonData.set(pokemonData.size()-2, "FALSE");
