@@ -1,8 +1,3 @@
-import java.util.Arrays;
-import java.util.List;
-PrintWriter pw;
-PrintWriter questionPw;
-
 String[] stringPokemon;
 
 String[] questions;
@@ -28,6 +23,10 @@ void setup() {
 
   questions = loadStrings("questions.txt");
   //questions is the array of questions
+  
+  //debug
+  printArray(stringPokemon);
+  printArray(questions);
 
   userAnswer = new String[questions.length];
   //user answers are stored in case a new pokemon should be created

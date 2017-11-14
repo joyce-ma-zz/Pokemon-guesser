@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.List;
+PrintWriter pw;
+PrintWriter questionPw;
+
 void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd) {
   String[] stringLines = loadStrings("pokemon.txt");
   List<String> lines = new ArrayList<String>(Arrays.asList(stringLines));
