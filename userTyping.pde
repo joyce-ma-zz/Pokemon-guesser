@@ -38,7 +38,7 @@ void userTyping(char character, String request) {
 
 void enterKeyPressed(){
   if (needInputQ) {
-    ////pokemonAdder(userAnswer, inputCache);
+    pokemonAdder(userAnswer, inputCache);
     //debug
     println ("question " + inputCache);
     needInputQ = false;
@@ -73,9 +73,14 @@ void getNewRow () {
     newRow[i] = userAnswer[i-1];
   }
   //pokemon type is entered into last column of new row
+  boolean hasType = false;
   for (int i = userAnswer.length - 14; i < userAnswer.length; i++) {
-    if (userAnswer[i].equals("TRUE")) {
+    if (userAnswer[i].equals("TRUE") && !hasType) {
       newRow[newRow.length - 1] = questions[i].substring(6, questions[i].length() - 6);
+      hasType = true;
     }
+  }
+  if (!hasType){
+      newRow[newRow.length - 1] = "none";
   }
 }
