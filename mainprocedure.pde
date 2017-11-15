@@ -57,8 +57,8 @@ void setup() {
     possiblePokemon.add(new Pokemon(splitStringPokemon[i]));
     
     //assign true-or-false values for each Pokemon for the type questions
-    String type = "Is it " + possiblePokemon.get(i).answers[possiblePokemon.get(i).answers.length - 14] + " type?";
-    for (int j = questions.length - 14; j < questions.length; j++) {
+    String type = "Is it " + possiblePokemon.get(i).answers[possiblePokemon.get(i).answers.length - 15] + " type?";
+    for (int j = questions.length - 15; j < questions.length; j++) {
       if (type.equals(questions[j])){
         possiblePokemon.get(i).answers[j] = "TRUE";
         //debugging
@@ -88,9 +88,9 @@ void mouseClicked() {
           }
         }
         //if user answers true to a pokemon type question
-        if (unaskedQ >= userAnswer.length - 14) {
+        if (unaskedQ >= userAnswer.length - 15) {
           //set all the types to false
-          for (int i = userAnswer.length - 14; i < userAnswer.length; i++) {
+          for (int i = userAnswer.length - 15; i < userAnswer.length; i++) {
             userAnswer[i] = "FALSE";
           }
         }
@@ -205,11 +205,11 @@ void guessWrong() {
   //if user already answered true to a pokemon type question
   boolean enteredType = false;
   if (!enteredType) {
-    for (int i = userAnswer.length - 14; i < userAnswer.length; i++) {
+    for (int i = userAnswer.length - 15; i < userAnswer.length; i++) {
       if (userAnswer[i] != null) {
         if (userAnswer[i].equals("TRUE")) {
           //set all the types to false
-          for (int j = userAnswer.length - 14; j < userAnswer.length; j++) {
+          for (int j = userAnswer.length - 15; j < userAnswer.length; j++) {
             userAnswer[j] = "FALSE";
           }
           //set the correct type as true

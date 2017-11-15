@@ -3,12 +3,14 @@ import java.util.List;
 PrintWriter pw;
 PrintWriter questionPw;
 
-void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd) {
+void pokemonAdder(String[] newPokemonInfo, String questionToAdd) {
   String[] stringLines = loadStrings("pokemon.txt");
   List<String> lines = new ArrayList<String>(Arrays.asList(stringLines));
   pw = createWriter("data\\pokemon.txt");
   // Create array for data to replace current data in the file
   ArrayList<String> newLines = new ArrayList<String>(60);
+  // Append new pokemon info to lines of pokemon file
+  lines.add(String.join("\t", newPokemonInfo));
   
   /* Add 'false' to the end of all items in the text file except for
      the one pokemon specified */
@@ -21,8 +23,8 @@ void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd
     pokemonData.add(pokemonData.get(pokemonData.size()-1));
     /* If this line is the data for the wrongly guessed pokemon, then copy
        all of this pokemon's data for the new pokemon and add a 'true' at the end
-       for the new question */
-    if (pokemonData.get(0).equals(pokemonGuess)) {
+       for the new question */    
+    /*if (pokemonData.get(0).equals(newPokemonInfo[0])) {
       ArrayList<String> newPokemonData = new ArrayList<String>(15);
       newPokemonData.add(pokemonToAdd);
       
@@ -31,10 +33,10 @@ void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd
       }
       // Join new pokemon info by tabs and add to 'lines' array
       lines.add(String.join("\t", newPokemonData));
-    }
+    }*/
     // Add 'false' just before type for the new question for all pokemon except
     // for adding 'true' to the new one
-    if (pokemonData.get(0).equals(pokemonToAdd)) {
+    if (pokemonData.get(0).equals(newPokemonInfo[0])) {
       pokemonData.set(pokemonData.size()-2, "TRUE");
     } else {
       pokemonData.set(pokemonData.size()-2, "FALSE");
@@ -49,7 +51,12 @@ void pokemonAdder(String pokemonToAdd, String pokemonGuess, String questionToAdd
   String[] stringQuestionLines = loadStrings("questions.txt");
   List<String> questionLines = new ArrayList<String>(Arrays.asList(stringQuestionLines));
   questionPw = createWriter("data\\questions.txt");
-  questionLines.add(questionToAdd);
+  List<String> questionLinesBuffer = questionLines;
+  // Shift type-related questions down 1 space to make room for new question
+  for (int i=0; i<questionLines.size(); i++) {
+    questionLinesBuffer.set(i+1, questionLines.get(i));
+  }
+  questionLines.set(questionLines.size()-15, questionToAdd);
   // Join new list of question and pokemon w/ their new info into a string
   // separated per line and add them to their respective files
   String questionUpdate = String.join("\r\n", questionLines);

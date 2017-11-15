@@ -27,18 +27,13 @@ void userTyping(char character, String request) {
   textSize(20);
   text("Oops! We don't have your Pokemon. Answer these questions to add it.", 20, 300);
   textSize(45);
-  text(inputCache, 500 - inputCache.length()*15, 500);
+  text(inputCache, 500 - inputCache.length()*10, 500);
   displayQuestion(request);  
   if (character == ENTER || character == RETURN) {
     if (inputCache.length() > 0){
       enterKeyPressed();
     }
   }
-  ////debug
-  //if (!needInputN&&!needInputQ){
-  //  background(0);
-  //  displayQuestion("Thanks for entering a Pokemon!");
-  //}
 }
 
 void enterKeyPressed(){
@@ -82,7 +77,7 @@ void getNewRow () {
   }
   //pokemon type is entered into last column of new row
   boolean hasType = false;
-  for (int i = userAnswer.length - 14; i < userAnswer.length; i++) {
+  for (int i = userAnswer.length - 15; i < userAnswer.length; i++) {
     if (userAnswer[i].equals("TRUE") && !hasType) {
       newRow[newRow.length - 1] = questions[i].substring(6, questions[i].length() - 6);
       hasType = true;
