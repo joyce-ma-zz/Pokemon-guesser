@@ -58,6 +58,10 @@ void displayQuestion(String i) { //use questionPicker to find i
   
 }
 
+void drawBackground(){
+  fill (100,100,255);
+  rect(0,200,1000,800);
+}
 
 boolean yesButtonWasClicked() {
   if( mouseX >= 225 && mouseX <= 425 && mouseY >= 500 && mouseY <=700 )

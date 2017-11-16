@@ -98,8 +98,7 @@ void mouseClicked() {
         userAnswer[unaskedQ] = "TRUE";
 
         background (50);
-        fill (100,100,255);
-        rect(0,200,1000,800);
+        drawBackground();
         fill(255);
         unaskedQ = 0;
         textSize(20);
@@ -155,9 +154,7 @@ void mouseClicked() {
         userAnswer[unaskedQ] = "FALSE";
 
         background (50);
-        
-        fill (100,100,255);
-        rect(0,200,1000,800);
+        drawBackground();
         fill(255);
         unaskedQ = 0;
         textSize(20);
