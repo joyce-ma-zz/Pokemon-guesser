@@ -14,8 +14,6 @@ int questionPicker(ArrayList<Pokemon> possiblePokemon, String[] questions){
       }
     }
     ratio[i] =  (float)trues/possiblePokemon.size(); // ratio of true/total
-    //debug
-    //println (questions[i], ratio[i]);
   }
   
   for (int i = 0; i < ratio.length; i++){ //Checks if ratio[i] is closer to 0.5 than bestRatio

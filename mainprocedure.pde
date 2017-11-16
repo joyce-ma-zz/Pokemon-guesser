@@ -24,10 +24,6 @@ void setup() {
   questions = loadStrings("questions.txt");
   //questions is the array of questions
   
-  //debug
-  printArray(stringPokemon);
-  printArray(questions);
-
   userAnswer = new String[questions.length];
   //user answers are stored in case a new pokemon should be created
 

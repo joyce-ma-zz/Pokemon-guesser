@@ -41,12 +41,7 @@ void userTyping(char character, String request) {
 void enterKeyPressed(){
   if (needInputQ) {
     //pokemonAdder(userAnswer, inputCache);
-    //debug
-    println ("question " + inputCache);
     needInputQ = false;
-    //debug
-    println(needInputQ);
-    println(needInputN);
     background(50);
     drawBackground();
     displayQuestion("Thanks for entering your Pokemon!");
@@ -60,8 +55,6 @@ void enterKeyPressed(){
     
     //asks to input question next
     needInputQ = true;
-    //debug
-    println ("name " + inputCache);
     inputCache = "";
   }
 }
