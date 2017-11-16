@@ -30,7 +30,6 @@ void pokemonAdder(String[] newPokemonInfo, String questionToAdd) {
     }
     
     String joinedPokemonData = String.join("\t", pokemonData);
-    print(newLines);
     // Add updated info to newLines
     newLines.add(joinedPokemonData);
   } // Finished adding new question info
