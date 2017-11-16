@@ -1,6 +1,8 @@
 void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
   if (possiblePokemon.size() > 1){
-    background (0);
+    background (50);
+    fill (100,100,255);
+    rect(0,200,1000,800);
     drawButtons();
     displayQuestion(questions[questionPicker(possiblePokemon, questions)]);
   }
@@ -17,19 +19,19 @@ void userInput(ArrayList<Pokemon>possiblePokemon, String[] questions){
 void drawButtons() {
   
   textSize(50);
-    
+  
   fill(230);
-  rect(185,450,630,300);
+  rect(185,450,630,280);
   
   //YES BUTTON
-  fill(0,255,0);
+  fill(50,255,50);
   rect(225, 500, 200, 200);
   
   fill(255,255,0);
   text("YES", 275, 600);
   
   //NO BUTTON
-  fill(255,0, 0);
+  fill(255,50, 50);
   rect(575, 500, 200, 200);
   
   fill(255,255,0);
@@ -40,6 +42,7 @@ void drawButtons() {
 void displayQuestion(String i) { //use questionPicker to find i
   
   textSize(45);
+
   
   fill(255,255,75);
   ellipse(500,100,500,175);
@@ -47,6 +50,9 @@ void displayQuestion(String i) { //use questionPicker to find i
   fill(0);
   text("Pokemon Guesser",290,115);
 
+  fill(200);
+  rect(15,300,970,90);
+  
   fill( 255 );
   text(i, 20, 360);
   

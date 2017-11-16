@@ -97,7 +97,9 @@ void mouseClicked() {
         //set the correct type as true
         userAnswer[unaskedQ] = "TRUE";
 
-        background (0);
+        background (50);
+        fill (100,100,255);
+        rect(0,200,1000,800);
         fill(255);
         unaskedQ = 0;
         textSize(20);
@@ -123,7 +125,9 @@ void mouseClicked() {
       }
       //if the player confirms the program's guess
       else if (possiblePokemon.size() == 1) {
-        background (0);
+        background (50);
+        fill (100,100,255);
+        rect(0,200,1000,800);
         displayQuestion("Guessed right!");
       } 
       //if the user's answers do not match a pokemon in the database
@@ -150,7 +154,10 @@ void mouseClicked() {
         }
         userAnswer[unaskedQ] = "FALSE";
 
-        background (0);
+        background (50);
+        
+        fill (100,100,255);
+        rect(0,200,1000,800);
         fill(255);
         unaskedQ = 0;
         textSize(20);
@@ -196,7 +203,9 @@ void mouseClicked() {
 
 //if adding new pokemon
 void guessWrong() {
-  background (0);
+  background (50);
+  fill (100,100,255);
+  rect(0,200,1000,800);
   fill(255);
   int unaskedQ = 0;
   textSize(20);

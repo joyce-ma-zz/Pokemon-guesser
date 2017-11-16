@@ -23,8 +23,11 @@ void userTyping(char character, String request) {
   } else if ( (character == BACKSPACE || character == DELETE) && inputCache.length() > 0 ) {
     inputCache = inputCache.substring(  0, inputCache.length()-1 );
   } 
-  background(0);
+  background(50);
+  fill (100,100,255);
+  rect(0,600,1000,600);
   textSize(20);
+  fill(0);
   text("Oops! We don't have your Pokemon. Answer these questions to add it.", 20, 300);
   textSize(45);
   text(inputCache, 500 - inputCache.length()*10, 500);
@@ -45,7 +48,9 @@ void enterKeyPressed(){
     //debug
     println(needInputQ);
     println(needInputN);
-    background(0);
+    background(50);
+    fill (100,100,255);
+    rect(0,600,1000,600);
     displayQuestion("Thanks for entering your Pokemon!");
   }
   else if (needInputN){
