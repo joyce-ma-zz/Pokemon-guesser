@@ -42,6 +42,9 @@ void enterKeyPressed(){
   if (needInputQ) {
     //pokemonAdder(userAnswer, inputCache);
     needInputQ = false;
+    //asks to input name next
+    needInputN = true;
+    inputCache = "";
     background(50);
     drawBackground();
     displayQuestion("Thanks for entering your Pokemon!");
@@ -52,10 +55,7 @@ void enterKeyPressed(){
     
     //no longer asks to input name
     needInputN = false;
-    
-    //asks to input question next
-    needInputQ = true;
-    inputCache = "";
+
   }
 }
 
@@ -82,4 +82,5 @@ void getNewRow () {
   if (!hasType){
       newRow[newRow.length - 1] = "none";
   }
+  pokemonAdder(userAnswer, inputCache);
 }
