@@ -73,7 +73,7 @@ void draw() {
 }
 
 void mouseClicked() {
-  if (!needInputN) {
+  if (!needInputN || !needInputQ) {
     if ( yesButtonWasClicked() ) { //return userAnswer
       //if answering remaining questions to create a new pokemon
       if (needInputA) { 
@@ -114,7 +114,7 @@ void mouseClicked() {
         //if all questions have been answered
         else {
           needInputA = false;
-          needInputN = true;
+          needInputQ = true;
           displayQuestion("Type your Pokemon's name.");
         }
       }
