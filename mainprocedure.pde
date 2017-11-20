@@ -174,7 +174,7 @@ void mouseClicked() {
           needInputA = false;
           //ask for name
           needInputN = true;
-          displayQuestion("Type your Pokemon's name.");
+          displayQuestion("Type a question only true for that Pokemon.");
         }
       }
       //if guessed wrong or no pokemon that matches user's answers
